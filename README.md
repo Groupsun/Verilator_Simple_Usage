@@ -6,7 +6,7 @@ Use Decoder.v as an example. Use File I/O to get input data.
 
 ```bash
 $ verilator -Wall --cc Decoder.v --exe Decoder_Sim.cpp --trace
-$ make -j -C ./obj_dir -f Decoder.mk Decoder
+$ make -j -C ./obj_dir -f VDecoder.mk VDecoder
 ```
 
 ## Generate .vcd file
