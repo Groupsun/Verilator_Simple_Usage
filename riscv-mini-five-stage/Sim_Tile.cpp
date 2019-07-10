@@ -33,16 +33,11 @@ int main(int argc, char **argv)
         top->io_PC_Write = 1;
         top->io_pc_recover = 1000;
         top->io_new_addr = 2000;
-        
-        // PC_Sel test
         top->io_PC_Sel = 0;
-
-        if (main_time >= 5 && main_time <= 6)
-            top->io_IF_ID_Write = 0;
-        else
-            top->io_IF_ID_Write = 1;
-        
+        top->io_IF_ID_Write = 1;
         top->io_IF_ID_Flush = 0;
+        top->io_rd = 0;
+        top->io_wdata = 0;
 
         top->eval();
         tfp->dump(main_time);

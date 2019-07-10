@@ -26,25 +26,64 @@ VL_MODULE(VTile) {
     VL_IN8(reset,0,0);
     VL_IN8(io_PC_Write,0,0);
     VL_IN8(io_PC_Sel,1,0);
+    VL_OUT8(io_Reg_Write,0,0);
     VL_IN8(io_IF_ID_Write,0,0);
     VL_IN8(io_IF_ID_Flush,0,0);
-    VL_OUT8(io_id_rs1,4,0);
-    VL_OUT8(io_id_rs2,4,0);
+    VL_OUT8(io_Imm_Sel,2,0);
+    VL_OUT8(io_ALU_Src,0,0);
+    VL_OUT8(io_ALUOp,4,0);
+    VL_OUT8(io_Branch,0,0);
+    VL_OUT8(io_Branch_Src,0,0);
+    VL_OUT8(io_Mem_Read,0,0);
+    VL_OUT8(io_Mem_Write,0,0);
+    VL_OUT8(io_Data_Size,1,0);
+    VL_OUT8(io_Load_Type,0,0);
+    VL_OUT8(io_Mem_to_Reg,2,0);
+    VL_OUT8(io_Jump_Type,0,0);
     VL_IN(io_pc_recover,31,0);
     VL_IN(io_new_addr,31,0);
+    VL_IN(io_rd,31,0);
+    VL_IN(io_wdata,31,0);
     VL_OUT(io_id_pc,31,0);
     VL_OUT(io_id_pc_4,31,0);
     VL_OUT(io_id_inst,31,0);
+    VL_OUT(io_rs1_out,31,0);
+    VL_OUT(io_rs2_out,31,0);
+    VL_OUT(io_imm,31,0);
     
     // LOCAL SIGNALS
     // Internals; generally not touched by application code
     // Begin mtask footprint  all: 
+    VL_SIG8(Tile__DOT__control_io_Reg_Write,0,0);
+    VL_SIG8(Tile__DOT__control_io_Imm_Sel,2,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_296,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_313,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_331,2,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_346,2,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_367,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_384,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_407,4,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_422,4,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_434,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_451,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_488,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_521,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_538,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_574,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_607,1,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_652,0,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_673,2,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_688,2,0);
+    VL_SIG8(Tile__DOT__control__DOT___T_717,0,0);
     VL_SIG(Tile__DOT__datapath_io_if_io_next_pc,31,0);
     VL_SIG(Tile__DOT__pc__DOT__pc_reg,31,0);
     VL_SIG(Tile__DOT__if_id_register__DOT__pc,31,0);
     VL_SIG(Tile__DOT__if_id_register__DOT__pc_4,31,0);
     VL_SIG(Tile__DOT__if_id_register__DOT__inst,31,0);
+    VL_SIG(Tile__DOT__regfile__DOT__regfile___05FT_136_data,31,0);
+    VL_SIG(Tile__DOT__immgen__DOT___T_181,31,0);
     VL_SIG8(Tile__DOT__instcache__DOT__cache[1024],7,0);
+    VL_SIG(Tile__DOT__regfile__DOT__regfile[32],31,0);
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code
