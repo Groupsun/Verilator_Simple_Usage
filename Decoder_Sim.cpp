@@ -21,27 +21,19 @@ int main(int argc, char **argv)
     top->trace(tfp, 99);
     tfp->open("Decoder.vcd");
 
-    int i;
-    fstream input_file;
-    input_file.open("input.txt");
-    for(i = 0;i < sim_time;i++)
-        input_file >> input_array[i];
+    int count = 0;
 
     while(!Verilated::gotFinish() && main_time < sim_time)
     {
         top->reset = 0;
-        cout << input_array[main_time];
-        if(main_time > 1)
-            top->S = input_array[main_time];
-        else
-            top->S = 0;
+        top->S = count;
+        count++;
         // cout << top->out << endl;
         top->eval();
         tfp->dump(main_time);
         main_time++;
     }
-
-    input_file.close();
+    
     tfp->close();
     delete top;
     delete tfp;
