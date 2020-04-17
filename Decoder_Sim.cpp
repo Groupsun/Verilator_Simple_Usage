@@ -1,7 +1,5 @@
 #include <verilated.h>
 #include <verilated_vcd_c.h>
-#include <iostream>
-#include <fstream>
 #include "VDecoder.h"
 using namespace std;
 
@@ -10,7 +8,6 @@ VerilatedVcdC* tfp;
 
 vluint64_t main_time = 0;
 const vluint64_t sim_time = 1024;
-int input_array[sim_time];
 
 int main(int argc, char **argv)
 {
